@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
+	<PackageReference Include="Moq" />
+	<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\InvestAdvisor.Application\InvestAdvisor.Application.csproj" />
+    <ProjectReference Include="..\..\Domain\InvestAdvisor.Domain\InvestAdvisor.Domain.csproj" />
   </ItemGroup>
 
 </Project>

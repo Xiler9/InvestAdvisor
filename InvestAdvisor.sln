@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestAdvisor.Domain", "src\Domain\InvestAdvisor.Domain\InvestAdvisor.Domain.csproj", "{4035C996-C6BB-42F5-9456-30DE133F7A8F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestAdvisor.Infrastructure", "src\Infrastructure\InvestAdvisor.Infrastructure\InvestAdvisor.Infrastructure.csproj", "{DD0E8A98-560F-48E7-B2E1-C116CF674D41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestAdvisor.Tests", "tests\InvestAdvisor.Tests\InvestAdvisor.Tests.csproj", "{C9EF0324-7DCB-4A2D-895B-71550DAF1A22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{DD0E8A98-560F-48E7-B2E1-C116CF674D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD0E8A98-560F-48E7-B2E1-C116CF674D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD0E8A98-560F-48E7-B2E1-C116CF674D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9EF0324-7DCB-4A2D-895B-71550DAF1A22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9EF0324-7DCB-4A2D-895B-71550DAF1A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9EF0324-7DCB-4A2D-895B-71550DAF1A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9EF0324-7DCB-4A2D-895B-71550DAF1A22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{C2EA7AA2-6AE0-42F1-A14A-503D16C074F6} = {53763CF3-A8B9-4119-A1B5-4ACC2BC37291}
 		{4035C996-C6BB-42F5-9456-30DE133F7A8F} = {8D738BE0-A03D-4778-A4AF-8680D669DDDA}
 		{DD0E8A98-560F-48E7-B2E1-C116CF674D41} = {AC0CBAA3-EBDE-4392-9437-0FA809AC8BA9}
+		{C9EF0324-7DCB-4A2D-895B-71550DAF1A22} = {A75387CE-24DE-41B5-AE4D-D6FEC822D152}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4228891A-591A-4C58-96AC-C20E0A202240}

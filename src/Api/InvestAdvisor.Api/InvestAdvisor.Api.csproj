@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -7,13 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0-rc.1.25451.107" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+	<PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+	<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+	<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+	<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="DTOs\" />
-    <Folder Include="Extensions\" />
+    <ProjectReference Include="..\..\Application\InvestAdvisor.Application\InvestAdvisor.Application.csproj" />
+    <ProjectReference Include="..\..\Domain\InvestAdvisor.Domain\InvestAdvisor.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\InvestAdvisor.Infrastructure\InvestAdvisor.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

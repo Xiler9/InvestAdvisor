@@ -1,7 +1,12 @@
-﻿namespace InvestAdvisor.Infrastructure
-{
-    public class AppDbContext
-    {
+﻿using InvestAdvisor.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
+namespace InvestAdvisor.Infrastructure
+{
+    public class AppDbContext : DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+        public DbSet<Post> Posts { get; set; }
     }
 }
