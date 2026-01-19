@@ -15,11 +15,11 @@ namespace InvestAdvisor.Api.Extensions
         {
             //Add DI to services
 
-            services.AddScoped<IPostService, PostService>();
+            services.AddScoped<INoteService, NoteService>();
 
             //Add DI to repositories
 
-            services.AddScoped<IPostRepositorie, PostRepositorie>();
+            services.AddScoped<INoteRepository, NoteRepository>();
 
             //Add DI to validators
 

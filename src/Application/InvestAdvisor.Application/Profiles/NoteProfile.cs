@@ -4,11 +4,11 @@ using InvestAdvisor.Domain.Models;
 
 namespace InvestAdvisor.Application.Profiles
 {
-    public class PostProfile : Profile
+    public class NoteProfile : Profile
     {
-        public PostProfile()
+        public NoteProfile()
         {
-            CreateMap<CreatePostRequest, Post>();
+            CreateMap<CreateNoteRequest, Note>();
         }
     }
 }
