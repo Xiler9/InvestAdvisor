@@ -1,4 +1,6 @@
-﻿namespace InvestAdvisor.Domain.Models
+﻿using InvestAdvisor.Domain.Enumerators;
+
+namespace InvestAdvisor.Domain.Models
 {
     public class Note
     {
@@ -7,5 +9,6 @@
         public string? Title { get; set; }
         public string? Text { get; set; }
         public List<Comment> Comments { get; set; } = new List<Comment>();
+        public NoteCategory Category { get; set; }
     }
 }

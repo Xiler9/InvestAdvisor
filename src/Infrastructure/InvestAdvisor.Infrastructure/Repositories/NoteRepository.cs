@@ -1,4 +1,5 @@
 ﻿using InvestAdvisor.Application.Interfaces.Repositories;
+using InvestAdvisor.Domain.Enumerators;
 using InvestAdvisor.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -26,9 +27,9 @@ namespace InvestAdvisor.Infrastructure.Repositories
             return note;
         }
 
-        public async Task<List<Note>> GetAllNotesAsync()
+        public async Task<List<Note>> GetNotesAsync(NoteCategory category)
         {
-            var notes = await _appDbContext.Notes.ToListAsync();
+            var notes = await _appDbContext.Notes.Where(x => x.Category == category).ToListAsync();
 
             return notes;
         }

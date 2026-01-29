@@ -1,10 +1,14 @@
 ﻿using InvestAdvisor.Api.DTOs.Requests;
+using InvestAdvisor.Application.DTOs;
 using InvestAdvisor.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace InvestAdvisor.Api.Controllers
 {
+    /// <summary>
+    /// Controller for notes handling
+    /// </summary>
     [Route("api")]
     [ApiController]
     public class NoteController : ControllerBase
@@ -19,6 +23,13 @@ namespace InvestAdvisor.Api.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Creat note
+        /// </summary>
+        /// <param name="createNoteRequest">Pre datas for creating note</param>
+        /// <returns>Created note</returns>
+        /// <exception cref="ArgumentException">Cant find null note</exception>
+        /// <exception cref="Exception" >Cant create note, unknow</exception>
         [HttpPost("note/create")]
         public async Task<IActionResult> CreateNoteAsync([FromBody]CreateNoteRequest createNoteRequest)
         {
@@ -29,6 +40,12 @@ namespace InvestAdvisor.Api.Controllers
                 _logger.LogInformation("Запись успешно создана");
 
                 return Ok(noteResponse);
+            }
+            catch (NullReferenceException ex)
+            {
+                _logger.LogError(ex, "Неудалось создать пустую запись");
+
+                return NotFound(ex);
             }
             catch (Exception ex)
             {
@@ -64,11 +81,11 @@ namespace InvestAdvisor.Api.Controllers
         }
 
         [HttpGet("note/get")]
-        public async Task<IActionResult> GetNotesAsync()
+        public async Task<IActionResult> GetNotesAsync([FromBody]GetNotesRequest getNotesRequest)
         {
             try
             {
-                var notes = _noteService.GetNotesAsync();
+                var notes = _noteService.GetNotesAsync(getNotesRequest);
 
                 _logger.LogInformation("Записи успешно получены");
 

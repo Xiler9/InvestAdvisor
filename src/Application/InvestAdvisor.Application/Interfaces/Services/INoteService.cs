@@ -1,4 +1,6 @@
 ﻿using InvestAdvisor.Api.DTOs.Requests;
+using InvestAdvisor.Application.DTOs;
+using InvestAdvisor.Domain.Enumerators;
 using InvestAdvisor.Domain.Models;
 
 namespace InvestAdvisor.Application.Interfaces.Services
@@ -7,7 +9,7 @@ namespace InvestAdvisor.Application.Interfaces.Services
     {
         public Task<Note> CreateNoteAsync(CreateNoteRequest createNoteRequest);
         public Task<Note> GetNoteAsync(int noteId);
-        public Task<List<Note>> GetNotesAsync();
+        public Task<List<Note>> GetNotesAsync(GetNotesRequest getNotesRequest);
         public Task DeleteNoteAsync(int noteId);
     }
 }

@@ -24,6 +24,10 @@ namespace InvestAdvisor.Application.Validators
                 .WithMessage("Text  не может быть null")
                 .Must(x => x.Length <= 1000)
                 .WithMessage("Длина Title не может превышать 1000");
+
+            RuleFor(x => x.Category)
+                .NotNull()
+                .WithMessage("Category  не может быть null");
         }
     }
 }
