@@ -5,7 +5,7 @@
         public static IServiceCollection AddDefaultExtensions(this IServiceCollection services)
         {
             services.AddControllers();
-            services.AddOpenApi();
+            //services.AddOpenApi();
 
             return services;
         }

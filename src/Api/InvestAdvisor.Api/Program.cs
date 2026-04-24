@@ -1,4 +1,6 @@
 using InvestAdvisor.Api.Extensions;
+using InvestAdvisor.Api.Middlewares;
+using InvestAdvisor.Api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,9 @@ builder.Services.AddDefaultExtensions();
 
 builder.Services.AddOwnExtensions(builder);
 
+builder.Configuration.AddJsonFile("appsettings.json");
+builder.Services.Configure<AuthSettings>(builder.Configuration.GetSection("AuthSettings"));
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -18,6 +23,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<JwtAthenticationMiddleware>();
 
 app.UseAuthorization();
 

@@ -1,10 +1,8 @@
 ﻿namespace InvestAdvisor.Application.DTOs
 {
-    public record CreateUserRequest
+    public record UserLoginRequest
     {
-        public string? Name { get; init; }
         public string? Login { get; init; }
         public string? Password { get; init; }
-        public string? Email { get; init; }
     }
 }

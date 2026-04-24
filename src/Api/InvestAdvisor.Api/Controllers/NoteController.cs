@@ -6,10 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace InvestAdvisor.Api.Controllers
 {
-    /// <summary>
-    /// Controller for notes handling
-    /// </summary>
-    [Route("api")]
+    [Route("note")]
     [ApiController]
     public class NoteController : ControllerBase
     {
@@ -23,19 +20,15 @@ namespace InvestAdvisor.Api.Controllers
             _logger = logger;
         }
 
-        /// <summary>
-        /// Creat note
-        /// </summary>
-        /// <param name="createNoteRequest">Pre datas for creating note</param>
-        /// <returns>Created note</returns>
-        /// <exception cref="ArgumentException">Cant find null note</exception>
-        /// <exception cref="Exception" >Cant create note, unknow</exception>
-        [HttpPost("note/create")]
+        [HttpPost]
+        [Route("create")]
         public async Task<IActionResult> CreateNoteAsync([FromBody]CreateNoteRequest createNoteRequest)
         {
             try
             {
-                var noteResponse = await _noteService.CreateNoteAsync(createNoteRequest);
+                var userId = int.Parse(HttpContext.Items["userId"].ToString());
+
+                var noteResponse = await _noteService.CreateNoteAsync(createNoteRequest, userId);
 
                 _logger.LogInformation("Запись успешно создана");
 
@@ -55,12 +48,15 @@ namespace InvestAdvisor.Api.Controllers
             }
         }
         
-        [HttpGet("note/get/{noteId}")]
-        public async Task<IActionResult> GetNoteAsync([FromQuery, Range(1, int.MaxValue, ErrorMessage = "noteId должен быть больше нуля")] int noteId)
+        [HttpGet]
+        [Route("get/{noteId}")]
+        public async Task<IActionResult> GetNoteAsync([FromRoute, Range(1, int.MaxValue, ErrorMessage = "noteId должен быть больше нуля")] int noteId)
         {
             try
             {
-                var noteResponse = await _noteService.GetNoteAsync(noteId);
+                var userId = int.Parse(HttpContext.Items["userId"].ToString());
+
+                var noteResponse = await _noteService.GetNoteAsync(noteId, userId);
 
                 _logger.LogInformation("Запись с id - {0} успешно получена", noteId);
 
@@ -80,7 +76,9 @@ namespace InvestAdvisor.Api.Controllers
             }
         }
 
-        [HttpGet("note/get")]
+        //Сделать правильно с userId и системой рекомендацией
+        [HttpGet]
+        [Route("get")]
         public async Task<IActionResult> GetNotesAsync([FromBody]GetNotesRequest getNotesRequest)
         {
             try
@@ -105,8 +103,9 @@ namespace InvestAdvisor.Api.Controllers
             }
         }
 
-        [HttpDelete("note/delete/{noteId}")]
-        public async Task<IActionResult> DeleteNoteAsync([FromQuery, Range(1, int.MaxValue, ErrorMessage = "noteId должен быть больше нуля")] int noteId)
+        [HttpDelete]
+        [Route("delete/{noteId}")]
+        public async Task<IActionResult> DeleteNoteAsync([FromRoute, Range(1, int.MaxValue, ErrorMessage = "noteId должен быть больше нуля")] int noteId)
         {
             try
             {

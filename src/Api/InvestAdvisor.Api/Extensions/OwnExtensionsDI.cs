@@ -16,10 +16,12 @@ namespace InvestAdvisor.Api.Extensions
             //Add DI to services
 
             services.AddScoped<INoteService, NoteService>();
+            services.AddScoped<IUserService, UserService>();
 
             //Add DI to repositories
 
             services.AddScoped<INoteRepository, NoteRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             //Add DI to validators
 
@@ -28,6 +30,10 @@ namespace InvestAdvisor.Api.Extensions
             //Add DI to mappers
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            //Add options
+
+            services.AddOptions();
 
             //Add DI to Db
 
