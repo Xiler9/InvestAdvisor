@@ -73,7 +73,8 @@ namespace InvestAdvisor.Api.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
+        [CheckAccess]
         [Route("get")]
         public async Task<IActionResult> GetUserAsync()
         {
@@ -102,7 +103,8 @@ namespace InvestAdvisor.Api.Controllers
         }
 
         [HttpDelete]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
+        [CheckAccess]
         [Route("delete")]
         public async Task<IActionResult> DeleteUserAsync()
         {
